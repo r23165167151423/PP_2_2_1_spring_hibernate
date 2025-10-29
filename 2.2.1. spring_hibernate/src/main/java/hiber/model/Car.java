@@ -10,11 +10,13 @@ public class Car {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String model;
-    private int series;
+    private final String model;
+    private final int series;
 
-    public Car() {}
-
+    protected Car() {
+        this.model = null;
+        this.series = 0;
+    }
     public Car(String model, int series) {
         this.model = model;
         this.series = series;
@@ -26,8 +28,5 @@ public class Car {
 
     public Long getId() { return id; }
     public String getModel() { return model; }
-    public void setModel(String model) { this.model = model; }
-
     public int getSeries() { return series; }
-    public void setSeries(int series) { this.series = series; }
 }
